@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài Tập Hàm</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./main/main.css" />
+  </head>
+  <body
+    class="bg-gray-100 min-h-screen py-10 px-4 flex flex-col items-center justify-center gap-8"
+  >
+    <!-- ==================== BÀI 1: QUẢN LÝ TUYỂN SINH ==================== -->
+    <div
+      class="w-full max-w-xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-md border border-gray-100"
+    >
+      <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Quản Lý Tuyển Sinh
+      </h1>
+
+      <div class="space-y-6">
+        <!-- Input Điểm chuẩn -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label
+              for="benchmarkScore"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Điểm chuẩn</label
+            >
+            <input
+              type="number"
+              id="benchmarkScore"
+              placeholder="Nhập điểm chuẩn"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+        </div>
+
+        <!-- 3 Input nhập điểm 3 môn học -->
+        <div>
+          <label class="block mb-2 text-sm font-semibold text-gray-700"
+            >Điểm 3 môn thi</label
+          >
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <input
+                type="number"
+                id="subjectScore1"
+                placeholder="Điểm môn thi thứ 1"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+              />
+            </div>
+            <div>
+              <input
+                type="number"
+                id="subjectScore2"
+                placeholder="Điểm môn thi thứ 2"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+              />
+            </div>
+            <div>
+              <input
+                type="number"
+                id="subjectScore3"
+                placeholder="Điểm thi thứ 3"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Dropdown Khu vực -->
+          <div>
+            <label class="block mb-2 text-sm font-semibold text-gray-700"
+              >Khu vực</label
+            >
+            <button
+              id="btnDropdownArea"
+              data-dropdown-toggle="dropdownArea"
+              class="w-full inline-flex items-center justify-between text-white bg-blue-600 bg-brand box-border border border-transparent hover:bg-blue-700 hover:bg-brand-strong focus:ring-4 focus:ring-blue-300 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-lg rounded-base text-sm px-4 py-2.5 focus:outline-none transition cursor-pointer"
+              type="button"
+            >
+              <span id="txtArea">Chọn Khu vực</span>
+              <svg
+                class="w-4 h-4 ms-1.5 -me-0.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 9-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            <!-- Dropdown menu Khu vực -->
+            <div
+              id="dropdownArea"
+              class="z-10 hidden bg-white bg-neutral-primary-medium border border-gray-200 border-default-medium rounded-lg rounded-base shadow-lg w-56"
+            >
+              <ul
+                class="p-2 text-sm text-gray-700 text-body font-medium"
+                aria-labelledby="btnDropdownArea"
+              >
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optAreaNone"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Không thuộc khu vực</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optAreaA"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Khu vực A</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optAreaB"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Khu vực B</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optAreaC"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Khu vực C</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Dropdown Đối tượng -->
+          <div>
+            <label class="block mb-2 text-sm font-semibold text-gray-700"
+              >Đối tượng</label
+            >
+            <button
+              id="btnDropdownTarget"
+              data-dropdown-toggle="dropdownTarget"
+              class="w-full inline-flex items-center justify-between text-white bg-blue-600 bg-brand box-border border border-transparent hover:bg-blue-700 hover:bg-brand-strong focus:ring-4 focus:ring-blue-300 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-lg rounded-base text-sm px-4 py-2.5 focus:outline-none transition cursor-pointer"
+              type="button"
+            >
+              <span id="txtTarget">Chọn Đối tượng</span>
+              <svg
+                class="w-4 h-4 ms-1.5 -me-0.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 9-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            <!-- Dropdown menu Đối tượng -->
+            <div
+              id="dropdownTarget"
+              class="z-10 hidden bg-white bg-neutral-primary-medium border border-gray-200 border-default-medium rounded-lg rounded-base shadow-lg w-56"
+            >
+              <ul
+                class="p-2 text-sm text-gray-700 text-body font-medium"
+                aria-labelledby="btnDropdownTarget"
+              >
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optTargetNone"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Không thuộc đối tượng</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optTarget1"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Đối tượng 1</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optTarget2"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Đối tượng 2</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    id="optTarget3"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-100 hover:bg-neutral-tertiary-medium hover:text-heading rounded cursor-pointer"
+                    >Đối tượng 3</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button
+            type="button"
+            id="btnAdmissionResult"
+            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-semibold rounded-lg text-base px-5 py-3 text-center transition duration-200 shadow-md cursor-pointer"
+          >
+            Kết quả
+          </button>
+        </div>
+
+        <div
+          id="admissionResult"
+          class="hidden p-4 rounded-xl text-center text-base font-semibold border transition-all duration-300"
+        ></div>
+      </div>
+    </div>
+
+    <!-- ==================== BÀI 2: TÍNH TIỀN ĐIỆN ==================== -->
+    <div
+      class="w-full max-w-xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-md border border-gray-100"
+    >
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Tính Tiền Điện
+      </h2>
+
+      <div class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label
+              for="electricCustomerName"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Họ và tên</label
+            >
+            <input
+              type="text"
+              id="electricCustomerName"
+              placeholder="Nhập họ và tên"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+          <div>
+            <label
+              for="electricKwNum"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Số kW điện</label
+            >
+            <input
+              type="number"
+              id="electricKwNum"
+              placeholder="Nhập số kW"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+        </div>
+        <div class="pt-2">
+          <button
+            type="button"
+            id="btnCalcElectricBill"
+            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-semibold rounded-lg text-base px-5 py-3 text-center transition duration-200 shadow-md cursor-pointer"
+          >
+            Tính tiền điện
+          </button>
+        </div>
+        <div
+          id="electricBillResult"
+          class="hidden p-4 rounded-xl text-center text-base font-semibold border transition-all duration-300"
+        ></div>
+      </div>
+    </div>
+
+    <!-- ==================== BÀI 3: TÍNH THUẾ THU NHẬP CÁ NHÂN ==================== -->
+    <div
+      class="w-full max-w-xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-md border border-gray-100"
+    >
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Tính Thuế Thu Nhập Cá Nhân
+      </h2>
+
+      <div class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label
+              for="taxCustomerName"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Họ và tên</label
+            >
+            <input
+              type="text"
+              id="taxCustomerName"
+              placeholder="Nhập họ và tên"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+          <div>
+            <label
+              for="totalAnnualIncome"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Tổng thu nhập năm</label
+            >
+            <input
+              type="number"
+              id="totalAnnualIncome"
+              placeholder="Tổng thu nhập"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+          <div>
+            <label
+              for="dependentsCount"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Số người phụ thuộc</label
+            >
+            <input
+              type="number"
+              id="dependentsCount"
+              placeholder="Số người"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button
+            type="button"
+            id="btnCalcTax"
+            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-semibold rounded-lg text-base px-5 py-3 text-center transition duration-200 shadow-md cursor-pointer"
+          >
+            Tính tiền thuế
+          </button>
+        </div>
+
+        <div
+          id="taxResult"
+          class="hidden p-4 rounded-xl text-center text-base font-semibold border transition-all duration-300"
+        ></div>
+      </div>
+    </div>
+
+    <!-- ==================== BÀI 4: TÍNH TIỀN CÁP ==================== -->
+    <div
+      class="w-full max-w-xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-md border border-gray-100"
+    >
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Tính Tiền Cáp
+      </h2>
+
+      <div class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label
+              for="cableCustomerId"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Mã khách hàng</label
+            >
+            <input
+              type="text"
+              id="cableCustomerId"
+              placeholder="Nhập mã khách hàng"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+          <div>
+            <label
+              for="cableCustomerType"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Loại khách hàng</label
+            >
+            <select
+              id="cableCustomerType"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition cursor-pointer"
+            >
+              <option value="residential">Nhà dân</option>
+              <option value="business">Doanh nghiệp</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div id="wrapperConnectionCount" class="hidden">
+            <label
+              for="connectionCount"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Số kết nối</label
+            >
+            <input
+              type="number"
+              id="connectionCount"
+              placeholder="Nhập số kết nối"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+          <div>
+            <label
+              for="premiumChannelsCount"
+              class="block mb-2 text-sm font-semibold text-gray-700"
+              >Số kênh cao cấp</label
+            >
+            <input
+              type="number"
+              id="premiumChannelsCount"
+              placeholder="Nhập số kênh"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none transition"
+            />
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button
+            type="button"
+            id="btnCalcCableBill"
+            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-semibold rounded-lg text-base px-5 py-3 text-center transition duration-200 shadow-md cursor-pointer"
+          >
+            Tính tiền cáp
+          </button>
+        </div>
+
+        <div
+          id="cableBillResult"
+          class="hidden p-4 rounded-xl text-center text-base font-semibold border transition-all duration-300"
+        ></div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <script src="./main/main.js"></script>
+  </body>
+</html>
